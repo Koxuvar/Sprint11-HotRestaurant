@@ -39,7 +39,7 @@
               Table Reservation
             </div>
             <div class="card-body">
-              <form role="form">
+              <form role="form" id="formA">
                 <div class="form-group">
                   <label for="reserve-name">Name</label>
                   <input type="text" class="form-control" id="reserve-name" />
@@ -80,7 +80,10 @@
     </div>
   </body>
 </html>
-
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
   // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
@@ -91,6 +94,30 @@
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
+    const tableInfo = {
+      "customerName"  : $('#reserve-name').val().trim(),
+      "customerEmail" : $('#reserve-email').val().trim(),
+      "ID"            : $('#reserve-unique-id').val().trim(),
+      "phoneNumber"   : $('#reserve-phone').val().trim()
+    };
+
+    const success = (res) =>
+    {
+      console.log(res);
+      $('#reserve-name').val("");
+      $('#reserve-email').val("");
+      $('#reserve-unique-id').val("");      
+      $('#reserve-phone').val("");    
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "/api/tables",
+      data: tableInfo,
+      success: success,
+      dataType: "json"
+    })
 
   });
 </script>
+
