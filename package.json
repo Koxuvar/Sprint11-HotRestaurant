@@ -1,0 +1,20 @@
+{
+  "name": "hotrestaurnat",
+  "version": "1.0.0",
+  "description": "a thing that does stuff",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Koxuvar/Sprint11-HotRestaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Koxuvar/Sprint11-HotRestaurant/issues"
+  },
+  "homepage": "https://github.com/Koxuvar/Sprint11-HotRestaurant#readme"
+}
